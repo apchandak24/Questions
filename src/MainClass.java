@@ -6,7 +6,8 @@ public class MainClass {
 	public static void main(String[] args) {
 		// findSecondHighestElement();
 		// printZigzag();
-		getDirectoryPath();
+		// getDirectoryPath();
+		AVLTree avlTree = new AVLTree();
 	}
 
 	private static void findSecondHighestElement() {
