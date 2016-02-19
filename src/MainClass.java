@@ -4,10 +4,18 @@ import java.util.Stack;
 public class MainClass {
 
 	public static void main(String[] args) {
+		//findSecondHighestElement();
+		//printZigzag();
+		//getDirectoryPath();
+		//getMaxAreaRectangle();
+		//minimumNumberOfReversals();
+		Trie trie = new Trie();
+		trie.insert("abbcd");
+		trie.insert("abe");
+		trie.search("bcd");
 		// findSecondHighestElement();
 		// printZigzag();
-		// getDirectoryPath();
-		AVLTree avlTree = new AVLTree();
+		getDirectoryPath();
 	}
 
 	private static void findSecondHighestElement() {
@@ -239,6 +247,79 @@ public class MainClass {
 		System.out.println("missing---- " + missing + " repeating---- " + repeat);
 
 	}
+
+private static void getMaxAreaRectangle(){
+	int []height = {2,1,5,6,2,3};
+	Stack<Integer> stack = new Stack<Integer>();
+ 
+	int max = 0;
+	int i = 0;
+ 
+	while (i < height.length) {
+		//push index to stack when the current height is larger than the previous one
+		if (stack.isEmpty() || height[i] >= height[stack.peek()]) {
+			stack.push(i);
+			i++;
+		} else {
+		//calculate max value when the current height is less than the previous one
+			int p = stack.pop();
+			int h = height[p];
+			System.out.println(h);
+			int w = stack.isEmpty() ? i : i - stack.peek() - 1;
+			max = Math.max(h * w, max);
+		}
+ 
+	}
+ 
+	while (!stack.isEmpty()) {
+		int p = stack.pop();
+		int h = height[p];
+		int w = stack.isEmpty() ? i : i - stack.peek() - 1;
+		max = Math.max(h * w, max);
+	}
+}
+
+private static void minimumNumberOfReversals(){
+	String expr = "{{{";
+	 int len = expr.length();
+	 
+	  
+	    // After this loop, stack contains unbalanced
+	    // part of expression, i.e., expression of the
+	    // form "}}..}{{..{"
+	    Stack<Character> s = new Stack<>();
+	    for (int i=0; i<len; i++)
+	    {
+	        if (expr.charAt(i)=='}' && !s.empty())
+	        {
+	            if (s.peek()=='{')
+	                s.pop();
+	            else
+	                s.push(expr.charAt(i));
+	        }
+	        else
+	            s.push(expr.charAt(i));
+	    }
+	 
+	    // Length of the reduced expression
+	    // red_len = (m+n)
+	    int red_len = s.size();
+	    System.out.println("new length "+red_len);
+	    // count opening brackets at the end of
+	    // stack
+	    int n = 0;
+	    while (!s.empty() && s.peek() == '{')
+	    {
+	        s.pop();
+	        n++;
+	    }
+	 
+	    // return ceil(m/2) + ceil(n/2) which is
+	    // actually equal to (m+n)/2 + n%2 when
+	    // m+n is even.
+	    System.out.println(red_len/2 + n%2);
+}
+	
 
 }
 
