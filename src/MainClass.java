@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -9,13 +11,46 @@ public class MainClass {
 		//getDirectoryPath();
 		//getMaxAreaRectangle();
 		//minimumNumberOfReversals();
-		Trie trie = new Trie();
-		trie.insert("abbcd");
-		trie.insert("abe");
-		trie.search("bcd");
-		// findSecondHighestElement();
-		// printZigzag();
-		getDirectoryPath();
+//		Trie trie = new Trie();
+//		trie.insert("abbcd");
+//		trie.insert("abe");
+//		trie.search("bcd");
+//		// findSecondHighestElement();
+//		// printZigzag();
+//		getDirectoryPath();
+		HashMap<Integer, String> map = new HashMap<>();
+		Integer s1;
+		map.put(s1 = new Integer(0),"val" );
+		System.out.println(map.get(s1));
+		try{
+			throw new FileNotFoundException();
+		}catch (FileNotFoundException e){
+			System.out.println("hi");
+		}catch (Exception e) {
+			System.out.println("hello");
+		}
+		String [] l = {"hell"};
+		temp(l);
+		System.out.println(l[0]);
+//		ArrayList<Integer> list = new ArrayList<>();
+//		list.add(5/2);
+//		try{
+//			temp();
+//		}catch (Exception e){
+//			System.out.println("catch");
+//		}
+//		int i=0;
+//		System.out.println(1==i++);
+		//swapCall();
+		SlidingWindow window = new SlidingWindow();
+		
+	}
+	private static void temp(String val[]){
+		try{
+			val[0] = "try";
+		}finally{
+			System.out.println("finally");
+		}
 	}
 
 	private static void findSecondHighestElement() {
@@ -319,7 +354,23 @@ private static void minimumNumberOfReversals(){
 	    // m+n is even.
 	    System.out.println(red_len/2 + n%2);
 }
-	
+	private static void swapCall(){
+		Directory d1  = new Directory(1);
+		Directory d2 = new Directory(2);
+		Directory d3 = new Directory(3);
+		Integer a =1;
+		implementSwap(d1, d2,d3,a);
+		System.out.println(d1.len+" === swap === "+d2.len+" "+d3.len+" "+a);
+	}
+	private static void implementSwap(Directory d1,Directory d2,Directory d3,Integer a){
+		Directory temp = d1;
+		d1 = d2;
+		d2 = temp;
+		System.out.println(d1.len+" === swap === "+d2.len);
+		Directory temp1 = new Directory(5);
+		d3 =temp1;
+		
+	}
 
 }
 
@@ -328,6 +379,9 @@ class Directory {
 	public int len;
 	public String filename;
 	public int level;
+	public Directory(int len) {
+		this.len = len;
+	}
 
 	public Directory(int len, String name, int level) {
 		this.len = len;
