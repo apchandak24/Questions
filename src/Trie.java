@@ -1,8 +1,11 @@
 import java.util.HashMap;
 
+
+import java.util.HashMap;
+
 class TrieNode {
 	// Initialize your data structure here.
-	public static char ch;
+	char ch;
 	HashMap<Character, TrieNode> map = new HashMap<Character, TrieNode>();
 	boolean isLeaf;
 
@@ -12,9 +15,6 @@ class TrieNode {
 
 	public TrieNode() {
 
-	}
-	static {
-		ch = 'a';
 	}
 }
 
