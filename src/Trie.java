@@ -16,6 +16,13 @@ class TrieNode {
 	public TrieNode() {
 
 	}
+	
+	public void x(float x,int y){
+		
+	}
+	public void x(int x,float y){
+		
+	}
 }
 
 public class Trie {

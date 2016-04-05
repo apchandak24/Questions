@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 
@@ -16,16 +17,32 @@ public class MainClass {
 		// getDirectoryPath();
 		// getMaxAreaRectangle();
 		// minimumNumberOfReversals();
-		Trie trie = new Trie();
-		trie.insert("abbcd");
-		trie.insert("abe");
-		trie.search("bcd");
+//		Trie trie = new Trie();
+//		trie.insert("abbcd");
+//		trie.insert("abe");
+//		trie.search("bcd");
 		// findSecondHighestElement();
 		// printZigzag();
 		// getDirectoryPath();
 		// Graph graph = new Graph();
-		HeapSort sort = new HeapSort();
+		//HeapSort sort = new HeapSort();
+		//RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
+//		ShortestJobFirst sj = new ShortestJobFirst();
+//		ShortestJobFirstArray sjf = new ShortestJobFirstArray();
+		//MinimumDistancePair pair = new MinimumDistancePair();
+		//RotationPoint point = new RotationPoint();
+		//MaxProductOf3Integers max = new MaxProductOf3Integers();
+		//MatrixRotation rotation =new MatrixRotation();
+		//MouseInMaze m = new MouseInMaze();
+		//new DutchFlag();
+		//new KClosestPoints();
+		//new LRUCache();
+		//new VerticalOrderTraversalTree();
+		//new MinMaxPathSumTree();
+		//new JobScheduling();
+		new EightCellProblem();
 	}
+	
 
 	private static void findSecondHighestElement() {
 		int array[] = { 2, 0, 23, 473684 };
@@ -356,7 +373,7 @@ class Directory {
 	}
 
 	public Directory(int i) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }
