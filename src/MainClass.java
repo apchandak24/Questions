@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
-
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import java.util.HashMap;
 import java.util.Stack;
@@ -40,7 +40,9 @@ public class MainClass {
 		//new VerticalOrderTraversalTree();
 		//new MinMaxPathSumTree();
 		//new JobScheduling();
-		new EightCellProblem();
+		//new EightCellProblem();
+		//new BinarySearchInfiniteArray();
+		new ShuffleArray();
 	}
 	
 

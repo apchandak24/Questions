@@ -1,6 +1,6 @@
 public class HeapSort {
 	public HeapSort() {
-		int a[] = { 2, 3, 4, 1, 10, 5, 11 };
+		int a[] = { 1,2, 3, 4, 1, 10, 5, 11 };
 		createHeap(a);
 		int size = a.length - 1;
 		for (int i = 0; i < a.length; i++) {
@@ -9,8 +9,8 @@ public class HeapSort {
 			heapify(a, 0, size);
 		}
 
-		// for (int i = 0; i < a.length; i++)
-		// System.out.print(a[i] + " ");
+		 for (int i = 0; i < a.length; i++)
+		 System.out.print(a[i] + " ");
 
 	}
 
@@ -23,9 +23,7 @@ public class HeapSort {
 	private void createHeap(int a[]) {
 		for (int i = (a.length / 2) - 1; i >= 0; i--) {
 			heapify(a, i, a.length);
-			for (int j = 0; j < a.length; j++)
-				System.out.print(a[j] + " ");
-			System.out.println();
+			
 		}
 	}
 
