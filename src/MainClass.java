@@ -24,7 +24,7 @@ public class MainClass {
 		// findSecondHighestElement();
 		// printZigzag();
 		// getDirectoryPath();
-		// Graph graph = new Graph();
+		Graph graph = new Graph();
 		//HeapSort sort = new HeapSort();
 		//RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
 //		ShortestJobFirst sj = new ShortestJobFirst();
@@ -42,7 +42,22 @@ public class MainClass {
 		//new JobScheduling();
 		//new EightCellProblem();
 		//new BinarySearchInfiniteArray();
-		new ShuffleArray();
+		//new ShuffleArray();
+//		MyThread a = new MyThread();
+//		Thread t1 = new Thread(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
+//		Thread t2 = new Thread(a);
+//		t1.start();
+//		t2.start();
+		//new MaximumSubarray();
+		
+		
 	}
 	
 

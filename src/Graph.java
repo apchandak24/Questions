@@ -25,6 +25,10 @@ public class Graph {
 		BFS(0);
 		System.out.println();
 		DFS(0);
+		
+		int[][] adjacencyMatrix= {{0,1,0,0},{1,0,0,1},{1,0,0,1},{0,1,1,0}};
+		DFSInAjacencyMatrix(adjacencyMatrix);
+		BFSInAdjacencyMatrix(adjacencyMatrix);
 	}
 
 	private void initializeGraph(int size) {
@@ -97,5 +101,42 @@ public class Graph {
 		}
 
 	}
-
+	private void BFSInAdjacencyMatrix(int array[][]){
+		Queue<Integer> queue = new LinkedList<Integer>();
+		boolean visited[] = new boolean[array.length];
+		queue.add(0);
+		visited[0]=true;
+		while(!queue.isEmpty()){
+			int val = queue.poll();
+			
+			for(int i=0;i<array[val].length;i++){
+				if(!visited[i] && array[val][i]==1){
+					queue.add(i);
+					System.out.println("visited---- "+i);
+					visited[i] =true;
+				}
+			}
+		}
+		
+	}
+	
+	private void DFSInAjacencyMatrix(int array[][]){
+		boolean visited[] = new boolean [array.length];
+		for(int i=0;i<array.length;i++){
+			if(!visited[i])
+			adjacencyMatrixTraversal(array, visited, i);
+		}
+		
+		
+	}
+	private void adjacencyMatrixTraversal(int array[][],boolean [] visited,int i){
+		visited[i] = true;
+		
+		for(int j=0;j<array[i].length;j++)
+			if(!visited[j] && array[i][j]==1){
+				System.out.println("Node visited--- "+j);
+				adjacencyMatrixTraversal(array, visited, j);
+			}
+		
+	}
 }
