@@ -38,14 +38,18 @@ public class EightCellProblem {
 				result[i] = prev ^ input[i + 1];
 				prev = input[i];
 			}
-			result[i] = input[i] ^ end;
+			result[i] = input[i-1] ^ end;
 			if (j < k - 1) {
 				for (int m = 0; m < result.length; m++) {
+					System.out.print(result[m] + " ");
 					input[m] = result[m];
 				}
 			} else
 				break;
 		}
+		
+		System.out.println();
+		
 		for (int j = 0; j < result.length; j++)
 			System.out.print(result[j] + " ");
 	}
