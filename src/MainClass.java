@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.Callable; import java.util.concurrent.ExecutionException; import java.util.concurrent.ExecutorService; import java.util.concurrent.Executors; import java.util.concurrent.Future;
+
 
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
@@ -17,49 +19,83 @@ public class MainClass {
 		// getDirectoryPath();
 		// getMaxAreaRectangle();
 		// minimumNumberOfReversals();
-//		Trie trie = new Trie();
-//		trie.insert("abbcd");
-//		trie.insert("abe");
-//		trie.search("bcd");
+		// Trie trie = new Trie();
+		// trie.insert("abbcd");
+		// trie.insert("abe");
+		// trie.search("bcd");
 		// findSecondHighestElement();
 		// printZigzag();
 		// getDirectoryPath();
-		Graph graph = new Graph();
-		//HeapSort sort = new HeapSort();
-		//RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
-//		ShortestJobFirst sj = new ShortestJobFirst();
-//		ShortestJobFirstArray sjf = new ShortestJobFirstArray();
-		//MinimumDistancePair pair = new MinimumDistancePair();
-		//RotationPoint point = new RotationPoint();
-		//MaxProductOf3Integers max = new MaxProductOf3Integers();
-		//MatrixRotation rotation =new MatrixRotation();
-		//MouseInMaze m = new MouseInMaze();
-		//new DutchFlag();
-		//new KClosestPoints();
-		//new LRUCache();
-		//new VerticalOrderTraversalTree();
-		//new MinMaxPathSumTree();
-		//new JobScheduling();
-		//new EightCellProblem();
-		//new BinarySearchInfiniteArray();
-		//new ShuffleArray();
+		//Graph graph = new Graph();
+		// HeapSort sort = new HeapSort();
+		// RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
+		// ShortestJobFirst sj = new ShortestJobFirst();
+		// ShortestJobFirstArray sjf = new ShortestJobFirstArray();
+		// MinimumDistancePair pair = new MinimumDistancePair();
+		// RotationPoint point = new RotationPoint();
+		// MaxProductOf3Integers max = new MaxProductOf3Integers();
+		// MatrixRotation rotation =new MatrixRotation();
+		// MouseInMaze m = new MouseInMaze();
+		// new DutchFlag();
+		// new KClosestPoints();
+		// new LRUCache();
+		// new VerticalOrderTraversalTree();
+		// new MinMaxPathSumTree();
+		// new JobScheduling();
+		// new EightCellProblem();
+		// new BinarySearchInfiniteArray();
+		// new ShuffleArray();
 //		MyThread a = new MyThread();
 //		Thread t1 = new Thread(new Runnable() {
-//			
+//
 //			@Override
 //			public void run() {
 //				// TODO Auto-generated method stub
-//				
+//
 //			}
 //		});
 //		Thread t2 = new Thread(a);
+//		
 //		t1.start();
 //		t2.start();
-		//new MaximumSubarray();
-		
-		
+//
+//		// new MaximumSubarray();
+//		try {
+//			callableExample();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		new DeleteNode();
 	}
-	
+
+	private static void callableExample() throws InterruptedException, ExecutionException{
+		  ExecutorService es = Executors.newSingleThreadExecutor(); 
+		 System.out.println("submitted callable task to calculate factorial of 10");
+		 Future result10 = es.submit(new CallableInterface(10)); 
+		 System.out.println("submitted callable task to calculate factorial of 15"); 
+		 Future result15 = es.submit(new CallableInterface(15)); 
+		 System.out.println("submitted callable task to calculate factorial of 20"); 
+		 Future result20 = es.submit(new CallableInterface(20)); 
+		 
+		 if(result20.isDone()){
+		 System.out.println("Calling get method of Future to get result of factorial 20");
+		 long factorialof20 = (long) result20.get(); 
+		 System.out.println("factorial of 20 is : " + factorialof20); 
+		 }
+		 System.out.println("Calling get method of Future to fetch result of factorial 10"); 
+		 long factorialof10 = (long) result10.get(); 
+		 System.out.println("factorial of 10 is : " + factorialof10);
+		 System.out.println("Calling get method of Future to get result of factorial 15"); 
+		 long factorialof15 = (long) result15.get(); 
+		 System.out.println("factorial of 15 is : " + factorialof15); 
+		
+
+		 
+	}
 
 	private static void findSecondHighestElement() {
 		int array[] = { 2, 0, 23, 473684 };
@@ -299,12 +335,14 @@ public class MainClass {
 		int i = 0;
 
 		while (i < height.length) {
-			// push index to stack when the current height is larger than the previous one
+			// push index to stack when the current height is larger than the
+			// previous one
 			if (stack.isEmpty() || height[i] >= height[stack.peek()]) {
 				stack.push(i);
 				i++;
 			} else {
-				// calculate max value when the current height is less than the previous one
+				// calculate max value when the current height is less than the
+				// previous one
 				int p = stack.pop();
 				int h = height[p];
 				System.out.println(h);
@@ -357,22 +395,24 @@ public class MainClass {
 		// m+n is even.
 		System.out.println(red_len / 2 + n % 2);
 	}
-	private static void swapCall(){
-		Directory d1  = new Directory(1);
+
+	private static void swapCall() {
+		Directory d1 = new Directory(1);
 		Directory d2 = new Directory(2);
 		Directory d3 = new Directory(3);
-		Integer a =1;
-		implementSwap(d1, d2,d3,a);
-		System.out.println(d1.len+" === swap === "+d2.len+" "+d3.len+" "+a);
+		Integer a = 1;
+		implementSwap(d1, d2, d3, a);
+		System.out.println(d1.len + " === swap === " + d2.len + " " + d3.len + " " + a);
 	}
-	private static void implementSwap(Directory d1,Directory d2,Directory d3,Integer a){
+
+	private static void implementSwap(Directory d1, Directory d2, Directory d3, Integer a) {
 		Directory temp = d1;
 		d1 = d2;
 		d2 = temp;
-		System.out.println(d1.len+" === swap === "+d2.len);
+		System.out.println(d1.len + " === swap === " + d2.len);
 		Directory temp1 = new Directory(5);
-		d3 =temp1;
-		
+		d3 = temp1;
+
 	}
 
 }
@@ -390,7 +430,7 @@ class Directory {
 	}
 
 	public Directory(int i) {
-		
+
 	}
 
 }
