@@ -69,7 +69,8 @@ public class MainClass {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		new DeleteNode();
+		//new DeleteNode();
+		new MoveZerosToEnd();
 	}
 
 	private static void callableExample() throws InterruptedException, ExecutionException{
