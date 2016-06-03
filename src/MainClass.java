@@ -1,15 +1,9 @@
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
-import java.util.concurrent.Callable; import java.util.concurrent.ExecutionException; import java.util.concurrent.ExecutorService; import java.util.concurrent.Executors; import java.util.concurrent.Future;
-
-
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-
 import java.util.HashMap;
 import java.util.Stack;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MainClass {
 
@@ -26,7 +20,7 @@ public class MainClass {
 		// findSecondHighestElement();
 		// printZigzag();
 		// getDirectoryPath();
-		//Graph graph = new Graph();
+		Graph graph = new Graph();
 		// HeapSort sort = new HeapSort();
 		// RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
 		// ShortestJobFirst sj = new ShortestJobFirst();
@@ -70,7 +64,9 @@ public class MainClass {
 //			e.printStackTrace();
 //		}
 		//new DeleteNode();
-		new MoveZerosToEnd();
+		//new MoveZerosToEnd();
+		new StringPermutation();
+		
 	}
 
 	private static void callableExample() throws InterruptedException, ExecutionException{

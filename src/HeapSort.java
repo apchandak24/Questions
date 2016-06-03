@@ -25,7 +25,7 @@ public class HeapSort {
 			heapify(a, i, a.length);
 			
 		}
-	}
+	}  
 
 	private void heapify(int a[], int index, int size) {
 

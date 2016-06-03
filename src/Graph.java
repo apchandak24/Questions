@@ -127,7 +127,7 @@ public class Graph {
 			adjacencyMatrixTraversal(array, visited, i);
 		}
 		
-		
+		//adjacencyMatrixTraversal(array, visited, 0);
 	}
 	private void adjacencyMatrixTraversal(int array[][],boolean [] visited,int i){
 		visited[i] = true;
