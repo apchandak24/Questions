@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public class ShortestJobFirst {
 	
-		int[] startTimes = { 0,55,60 };
-		int[] Durations = { 3,2,1};
+		int[] startTimes = { 0,2,2,5,20};
+		int[] Durations = {7,4,1,4,5};
 	
 		public ShortestJobFirst() {
 			// int[] startTime = { 0, 2, 4, 20, 20, 20 };
@@ -27,6 +27,7 @@ public class ShortestJobFirst {
 						// int[] Durations = { 4, 5 };
 						
 						float result = doSJF();
+						doSJF2();
 						System.out.println(result);
 		}
 		private float doSJF(){
@@ -156,8 +157,60 @@ public class ShortestJobFirst {
 					timer = timer + Durations[shortestJobIndex];
 				}
 			}
+			System.out.println("waiting time "+waitingTime);
 			return (float) waitingTime / startTimes.length;
 		}
+		private void doSJF2(){
+			int timer = 0;
+			int flag = -1;
+			Queue<Integer> proc = new LinkedList<Integer>();
+			List<Integer> waiting = new ArrayList<Integer>();
+			int waitingTime = 0;
+			
+			for(int i = 0; i < startTimes.length; i++){
+				proc.add(i);
+			}
+			
+			waiting.add(0);
+			while(!proc.isEmpty() || !waiting.isEmpty()){
+				if(flag == -1){
+					timer = timer+ Durations[proc.remove()];
+					waiting.remove(0);
+					flag = 0;
+				}
+
+				//Add all the process to the waiting list whose start time is less the timer
+				while(proc.peek() != null && startTimes[proc.peek()] <= timer){
+					waiting.add(proc.remove());
+				}
+				
+				if(!proc.isEmpty() && waiting.isEmpty()){
+					int jobIndex = proc.remove();
+					timer = startTimes[jobIndex];
+					waiting.add(jobIndex);
+				}
+				 
+				//get the index of the shortest job index
+				if(!waiting.isEmpty()){				
+					int shortestJobIndex = getSmallestJob(waiting, startTimes, Durations);
+					waiting.remove(new Integer(shortestJobIndex));
+					waitingTime = waitingTime + (timer - startTimes[shortestJobIndex]);
+					timer = timer + Durations[shortestJobIndex];
+				}
+			}
+
+			System.out.println("waiting time 2 "+waitingTime);
+		}
+		public static int getSmallestJob(List<Integer> waiting, int[] startTimes, int[] Durations){
+			int min = waiting.get(0);
+			for(int each : waiting){
+				if(Durations[min] > Durations[each]){
+					min = each;
+				}
+			}
+			return min;	
+		}
+
 
 		// Returns an index of a process with smallest running time.
 		private  int getShortestJob(List<Integer> waiting, int[] startTimes, int[] Durations) {

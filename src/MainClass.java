@@ -20,7 +20,7 @@ public class MainClass {
 		// findSecondHighestElement();
 		// printZigzag();
 		// getDirectoryPath();
-		Graph graph = new Graph();
+		// Graph graph = new Graph();
 		// HeapSort sort = new HeapSort();
 		// RoundRobinScheduling robinScheduling = new RoundRobinScheduling();
 		// ShortestJobFirst sj = new ShortestJobFirst();
@@ -65,7 +65,9 @@ public class MainClass {
 //		}
 		//new DeleteNode();
 		//new MoveZerosToEnd();
-		new StringPermutation();
+		//new StringPermutation();
+		//new RoundRobin();
+		new ShortestJobFirst();
 		
 	}
 
