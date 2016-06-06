@@ -67,7 +67,9 @@ public class MainClass {
 		//new MoveZerosToEnd();
 		//new StringPermutation();
 		//new RoundRobin();
-		new ShortestJobFirst();
+		//new ShortestJobFirst();
+		
+		new InsertIntoCircularLinkedList();
 		
 	}
 

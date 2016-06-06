@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public class ShortestJobFirst {
 	
-		int[] startTimes = { 0,2,2,5,20};
-		int[] Durations = {7,4,1,4,5};
+		int[] startTimes = { 0,2,2,5,20,20};
+		int[] Durations = {7,4,1,4,5,3};
 	
 		public ShortestJobFirst() {
 			// int[] startTime = { 0, 2, 4, 20, 20, 20 };
@@ -187,6 +187,13 @@ public class ShortestJobFirst {
 				if(!proc.isEmpty() && waiting.isEmpty()){
 					int jobIndex = proc.remove();
 					timer = startTimes[jobIndex];
+					for(Integer i:proc){
+						if(startTimes[i]==startTimes[jobIndex]){
+							waiting.add(i);
+							proc.remove(i);
+						}
+							
+					}
 					waiting.add(jobIndex);
 				}
 				 
